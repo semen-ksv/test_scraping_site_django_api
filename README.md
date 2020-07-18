@@ -1,23 +1,17 @@
-## Test task: Simple REST API with Django Rest Framework
+## Test task: Scraping citrus.ua and API with Django Rest Framework
 
 #### Implement:
   1. used Django Rest Framework
-  2. models: SimpleUser inheritance AbstractUser, Post, Like
-  2. JWT token authentication
-  3. swagger documentations
-  4. testing models, auth, views, urls
+  2. models: ProductItem
+  3. scraping with HTMLSession, BeautifulSoup
+  4. Celery, Redis
+  5. testing models, views, urls
   
 #### Urls:
-1. user signup ```auth/users/```
-2. user login (get JWT token) ```api/token/```
-3. show all posts ```api/post/```
-4. post creation ```api/post/create/```
-5. post updating ```api/post/<post_slug>/update/```
-6. post deleting ```api/post/<post_slug>/delete/```
-7. post like ```api/post/<post_slug>/like/```
-8. post unlike ```api/post/<post_slug>/unlike/```
-9. analytics about how many likes was made for one day ```api/post/date_<YYYY-MM-DD>/```
-10. like analytics for range of days ```api/post/date-from_<YYYY-MM-DD>-date-to_<YYYY-MM-DD>/```
+1. main page with one button  ```/```
+2. list of all scraping items ```items/```
+3. list of iPhones ```items/phone```
+4. list of notebooks ```items/notebook```
 ```
 {
     "all likes at 2020-07-16 to 2020-07-17": 5,
@@ -27,20 +21,6 @@
     }
 }
 ```
-11\. user activity show when user was login last time and when he made a last request ```user/```
-```
-{
-    "id": 2,
-    "username": "sem",
-    "last_login": "2020-07-16T22:01:52.763687Z",
-    "last_request": "2020-07-16T22:03:18.935197Z"
-}
-```
-12\. Swagger page ```swagger/```
-
-
-Passed tests
-
 
 ### Running project
 

@@ -3,12 +3,9 @@ from requests_html import HTMLSession
 
 from citrys_scraping.models import ProductItem
 
-
-
 session = HTMLSession()
 user_agent = ('Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:50.0) '
               'Gecko/20100101 Firefox/50.0')
-
 
 RELEVANT_PRICE = 25000
 RELEVANT_NAME = 'Apple iPhone'
@@ -39,6 +36,7 @@ def find_iphone(url):
                 #                       'product_html': cart})
                 ProductItem.objects.get_or_create(
                     name=product_name,
+                    type='iPhone',
                     link=product_item_link,
                     image_link=product_image_link,
                     price=product_price,
@@ -84,6 +82,7 @@ def find_notebook(url):
                 #                       'product_html': cart})
                 ProductItem.objects.get_or_create(
                     name=product_name,
+                    type='Notebook',
                     link=product_item_link,
                     image_link=product_image_link,
                     price=product_price,
@@ -94,4 +93,3 @@ def find_notebook(url):
 
         except AttributeError:
             print('attribute error')
-

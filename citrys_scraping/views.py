@@ -10,7 +10,6 @@ from .scraper import find_iphone, find_notebook
 from .forms import ScrapForm
 
 
-
 def main_index(request):
     """Create main index page url('/')"""
 
@@ -19,13 +18,8 @@ def main_index(request):
         # scrape_cur.delay()
         print('finihs')
         return render(request, 'citrys_scraping/index.html')
-#
-#     # if request.method == "POST":
-#     #     form = ScrapForm(request.POST)
-#     #     find_iphone()
-#     #     find_notebook()
-#     #     return render(request, 'citrys_scraping/index.html')
-#     return HttpResponse(status=405)
+
+
 
 # class StartPageView(FormView):
 #     template_name = 'citrys_scraping/index.html'
@@ -43,4 +37,18 @@ class ItemsListView(ListAPIView):
     """Output list of all items"""
 
     queryset = ProductItem.objects.all()
+    serializer_class = ProductItemSerializer
+
+
+class FilterPhoneItemView(ListAPIView):
+    """Output list of all items"""
+
+    queryset = ProductItem.objects.filter(type='iPhone')
+    serializer_class = ProductItemSerializer
+
+
+class FilterNotebookItemView(ListAPIView):
+    """Output list of all items"""
+
+    queryset = ProductItem.objects.filter(type='Notebook')
     serializer_class = ProductItemSerializer
