@@ -6,6 +6,7 @@
   3. scraping with HTMLSession, BeautifulSoup
   4. Celery, Redis
   5. testing models, views, urls
+  6. filtering by 'type', 'price', 'cashbak' using ```django-filter```
   
 #### Urls:
 1. main page with one button  ```/```
