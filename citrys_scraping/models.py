@@ -5,7 +5,7 @@ class ProductItem(models.Model):
     name = models.CharField(max_length=150)  # Medium / Dev.to
     link = models.TextField()
     image_link = models.TextField()
-    prise = models.IntegerField()
+    price = models.IntegerField()
     cashback = models.IntegerField()
     specifications = models.TextField(blank=True, null=True)
     product_html = models.TextField()

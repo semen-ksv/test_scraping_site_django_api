@@ -5,5 +5,5 @@ class ProductItemSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ProductItem
-        fields = ('slug', 'title', 'date_posted', 'total_likes')
+        fields = ('name', 'link', 'image_link', 'price', 'cashback', )
         read_only_fields = fields
