@@ -3,7 +3,7 @@ from requests_html import HTMLSession
 
 from peewee import *
 
-db = SqliteDatabase('db.sqlite3')
+db = PostgresqlDatabase('my_database', user='postgres')
 
 class ProductItem(Model):
     name = CharField(max_length=150)

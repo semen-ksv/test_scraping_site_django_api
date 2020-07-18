@@ -1,4 +1,6 @@
 ## Test task: Scraping citrus.ua and API with Django Rest Framework
+Main web-scraping file webparser.py.
+Information save in database PostgraseSQL using peeve
 
 #### Implement:
   1. used Django Rest Framework
@@ -8,19 +10,25 @@
   5. testing models, views, urls
   6. filtering by 'type', 'price', 'cashbak' using ```django-filter```
   
+I couldn't connect web-scraping process with main loop of django 
+  
 #### Urls:
 1. main page with one button  ```/```
 2. list of all scraping items ```items/```
 3. list of iPhones ```items/phone```
 4. list of notebooks ```items/notebook```
 ```
-{
-    "all likes at 2020-07-16 to 2020-07-17": 5,
-    "daily likes": {
-        "2020-07-16": 2,
-        "2020-07-17": 3
-    }
-}
+    {
+        "id": 1,
+        "name": "Apple iPhone 11 Pro Max 64Gb Midnight Green (MWHH2)",
+        "type": "iPhone",
+        "link": "https://www.citrus.ua//smartfony/iphone-11-pro-max-64gb-midnight-green-apple-653246.html",
+        "image_link": "https://i.citrus.ua/imgcache/size_180/uploads/shop/1/3/1354916085a1a1199f81e7cd5a69686e.jpg",
+        "price": 39999,
+        "cashback": 699,
+        "specifications": "Материалы корпуса: Металл, Стекло; Влагозащита: IP68; Влагозащита: IP68; К....",
+        "product_html": "<div class="product-card__name"><a class="" href="/smartfony/....>"
+    },
 ```
 
 ### Running project

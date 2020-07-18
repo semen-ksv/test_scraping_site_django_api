@@ -11,7 +11,7 @@ def main_index(request):
     """Create main index page url('/')"""
 
     if request.method == 'GET':
-        scrape_cur()
+        scrape_cur.delay()
 
         return render(request, 'citrys_scraping/index.html')
 
