@@ -1,15 +1,15 @@
 ## Test task: Scraping citrus.ua and API with Django Rest Framework
-Main web-scraping file webparser.py.
-Information save in database PostgraseSQL using peeve.
+Main web-scraping file scraper.py.
+Information saves in database PostgraseSQL using peeve and Django ORM.
 
 #### Implement:
   1. used Django Rest Framework
   2. models: ProductItem
   3. scraping with HTMLSession, BeautifulSoup
-  4. testing models, views, urls
-  5. filtering by 'type', 'price', 'cashbak' using ```django-filter```
+  4. use Celery and Redis for run scraping in the background
+  5. testing models, views, urls
+  6. filtering by 'type', 'price', 'cashbak' using ```django-filter```
   
-#### I couldn't connect web-scraping process with main loop of django because HTMLSession run oun Thread. Tried run with Celery and Redis but scraping process didn't start.
   
 #### Urls:
 1. main page with one button  ```/```
@@ -67,13 +67,19 @@ Migrate for creating all tables
 python manage.py migrate
 ```
 
-Run file webparser.py for scraping information 
+Run Redis in one terminal 
 
 ```
-python webparser.py
+redis-server
 ```
 
-Now you can run the project with this command
+Run Celery in another terminal 
+
+```
+celery -A Test_scraping_django worker  -l info
+```
+
+Now you can run the project with this command in third terminal
 
 ```
 python manage.py runserver
