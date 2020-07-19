@@ -1,5 +1,6 @@
 ## Test task: Scraping citrus.ua and API with Django Rest Framework
 Main web-scraping file scraper.py.
+
 Information saves in database PostgraseSQL using peeve and Django ORM.
 
 #### Implement:
