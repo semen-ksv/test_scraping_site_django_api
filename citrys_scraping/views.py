@@ -1,10 +1,10 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView
-from .tasks import scrape_async, scrape_cur, some
+from .tasks import scrape_async, scrape_cur
 from .models import ProductItem
 from .serializers import ProductItemSerializer
-from .scraper import find_iphone, find_notebook
+
 
 
 def main_index(request):

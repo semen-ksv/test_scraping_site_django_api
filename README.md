@@ -6,11 +6,11 @@ Information save in database PostgraseSQL using peeve
   1. used Django Rest Framework
   2. models: ProductItem
   3. scraping with HTMLSession, BeautifulSoup
-  4. Celery, Redis
+  4. Celery, Redis 
   5. testing models, views, urls
   6. filtering by 'type', 'price', 'cashbak' using ```django-filter```
   
-I couldn't connect web-scraping process with main loop of django 
+####I couldn't connect web-scraping process with main loop of django because HTMLSession run oun Thread. Tried run with Celery and Redis but scraping process didn't start.
   
 #### Urls:
 1. main page with one button  ```/```

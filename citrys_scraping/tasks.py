@@ -1,7 +1,7 @@
 from __future__ import absolute_import, unicode_literals
 from celery import shared_task, task
 from .scraper import find_notebook, find_iphone
-import time
+
 
 
 url_iphone = 'https://www.citrus.ua/'
@@ -24,8 +24,3 @@ def scrape_async():
     return
 
 
-@task
-def some():
-    print('som')
-    time.sleep(3)
-    print('fin')
