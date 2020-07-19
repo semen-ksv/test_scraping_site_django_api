@@ -14,9 +14,9 @@ Information save in database PostgraseSQL using peeve.
 #### Urls:
 1. main page with one button  ```/```
 2. list of all scraping items ```items/```
-3. list of iPhones ```items/phone```
 ![](templates/api_page.jpg)
-4. list of notebooks ```items/phone```
+3. list of iPhones ```items/phone``` or notebooks ```items/phone```
+
 ```
     {
         "id": 1,
