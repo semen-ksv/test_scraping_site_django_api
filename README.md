@@ -16,7 +16,8 @@ I couldn't connect web-scraping process with main loop of django
 1. main page with one button  ```/```
 2. list of all scraping items ```items/```
 3. list of iPhones ```items/phone```
-4. list of notebooks ```items/notebook```
+![](templates/api_page.jpg)
+4. list of notebooks ```items/phone```
 ```
     {
         "id": 1,
@@ -65,6 +66,12 @@ Migrate for creating all tables
 
 ```
 python manage.py migrate
+```
+
+Run file webparser.py for scraping information 
+
+```
+python webparser.py
 ```
 
 Now you can run the project with this command

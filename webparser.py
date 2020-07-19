@@ -5,7 +5,7 @@ from peewee import *
 
 db = PostgresqlDatabase('my_database', user='postgres')
 
-class ProductItem(Model):
+class Citrys_scraping_productItem(Model):
     name = CharField(max_length=150)
     type = TextField()
     link = TextField()
@@ -30,7 +30,7 @@ url_notebook = 'https://www.citrus.ua/noutbuki-i-ultrabuki/'
 
 def create_db():
     db.connect()
-    db.create_tables([ProductItem])
+    db.create_tables([Citrys_scraping_productItem])
 
 def find_iphone(url):
     """pars Iphones from citrus.ua"""
@@ -38,7 +38,6 @@ def find_iphone(url):
     request_page.html.render()
     request_page = request_page.html.html
     soup = BeautifulSoup(request_page, features="lxml")
-    print('skraper')
     all_products_carts = soup.find_all('div', {'class': 'product-card'})
     for product_cart in all_products_carts:
         try:
@@ -51,7 +50,7 @@ def find_iphone(url):
 
                 product_cashback = int(product_cart.find('span', {'class': 'value'}).text.strip(' ₴'))
 
-                ProductItem.get_or_create(
+                Citrys_scraping_productItem.get_or_create(
                     name=product_name,
                     type='iPhone',
                     link=product_item_link,
@@ -73,7 +72,6 @@ def find_notebook(url):
     soup = BeautifulSoup(request_page, features="lxml")
 
     all_products_carts = soup.find_all('div', {'class': 'product-card'})
-    print('skraper')
 
     for product_cart in all_products_carts:
         try:
@@ -92,7 +90,7 @@ def find_notebook(url):
                 for name, value in zip(product_specifications_name, product_specifications_value):
                     product_specifications += f'{name.text} - {value.text}; '
 
-                notebook = ProductItem.get_or_create(
+                notebook = Citrys_scraping_productItem.get_or_create(
                     name=product_name,
                     type='Notebook',
                     link=product_item_link,
@@ -109,8 +107,7 @@ def find_notebook(url):
 
 def main(url):
     """find last page in pagination"""
-    number = 1
-    pattern = f'https://www.citrus.ua/noutbuki-i-ultrabuki/page_{number}/'
+
     request_page = session.get(url, headers={'User-Agent': user_agent})
     request_page.html.render()
     request_page = request_page.html.html
@@ -119,8 +116,9 @@ def main(url):
     last_item = pagination.find_all('li', {'class': 'skip'})[1].next.next.next
     last_page = int(last_item.find('a').text)
 
-    for i in range(1, last_page+1):
-        url = pattern.format(number=str(i))
+    for number in range(1, last_page+1):
+        url = f'https://www.citrus.ua/noutbuki-i-ultrabuki/page_{str(number)}/'
+        print(url)
         find_notebook(url)
 
 if __name__ == '__main__':
