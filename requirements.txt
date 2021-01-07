@@ -20,7 +20,7 @@ fake-useragent==0.1.11
 future==0.18.2
 idna==2.10
 kombu==4.6.11
-lxml==4.5.2
+lxml==4.6.2
 parse==1.15.0
 peewee==3.13.3
 psycopg2==2.8.5
